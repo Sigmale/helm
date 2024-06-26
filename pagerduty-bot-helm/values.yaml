@@ -4,7 +4,7 @@
 
 replicaCount: 1
 
-# namespace: lst-apps
+namespace: lst-apps
 
 image:
   repository: asia-south1-docker.pkg.dev/gc-qa6/gc-qa6/pagerduty-bot
