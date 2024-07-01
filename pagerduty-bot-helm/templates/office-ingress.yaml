@@ -14,7 +14,7 @@ metadata:
     app: testing-pagerduty-office-ingress-bot
   namespace: {{ .Values.namespace }}
 spec:
-  ingressClassName: "ingress-nginx-office"  
+  ingressClassName: "ingress-nginx-external"  
   rules:
     - host: devtools-oncall-gpt.sprinklr.com    # Replace with your desired hostname
       http:
