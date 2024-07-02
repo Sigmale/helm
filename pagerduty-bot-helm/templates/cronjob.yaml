@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: feedback-job
+spec:
+  schedule: "{{ .Values.cronJob.schedule }}"
+  successfulJobsHistoryLimit: {{ .Values.cronJob.successfulJobsHistoryLimit }}
+  failedJobsHistoryLimit: {{ .Values.cronJob.failedJobsHistoryLimit }}
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: feedback-job
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+              imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+              command:
+                - "python3"
+              args:
+                - "/app/feedback_loop/main.py"
+          restartPolicy: OnFailure
+          securityContext: {{ .Values.securityContext | toYaml | nindent 12 }}
