@@ -7,7 +7,7 @@ replicaCount: 1
 namespace: lst-apps
 
 image:
-  repository: asia-south1-docker.pkg.dev/gc-qa6/gc-qa6/my-pagerduty-bot
+  repository: asia-south1-docker.pkg.dev/gc-qa6/gc-qa6/pagerduty-feedb-bot
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
