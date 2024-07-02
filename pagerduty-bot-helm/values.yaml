@@ -47,6 +47,11 @@ service:
   port: 80
   targetport: 80
 
+cronJob:
+  schedule: "0 0 * * 0"  # Every Sunday at midnight
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1
+
 ingress:
   enabled: true
   className: "ingress-nginx-external"
